@@ -1,1 +1,52 @@
-<h1>Sitio en construcción</h1>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sitio en construccion</title>
+  <style>
+    body {
+      text-align: center;
+      background-color: #ffffff;
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    h1 {
+      color: #333;
+      margin-bottom: 2rem;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 1rem;
+      border: none;
+      background-color: #ff69b4;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #ff1493;
+    }
+  </style>
+</head>
+<body>
+  <h1>Sitio en construcción 🚧🏗️👷🏽</h1>
+  <button onclick="pedirContrasena()">Acceder</button>
+
+  <script>
+    function pedirContrasena() {
+      const contrasenaCorrecta = "mevoy"; 
+      const input = prompt("Ingresa la contraseña para acceder:");
+      if (input === contrasenaCorrecta) {
+        window.location.href = "despedida.html"; 
+      } else if (input !== null) {
+        alert("Contraseña incorrecta. Intenta de nuevo.");
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>¡Qué lástima, pero adiós!</title>
+  <style>
+    body {
+      background-color: #ffe4e1;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+    }
+    h1 {
+      color: #ff1493;
+      text-align: center;
+      padding: 2rem;
+    }
+    .video-section {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem;
+      box-sizing: border-box;
+      position: relative;
+    }
+    .video-title {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      color: #d6336c;
+    }
+    iframe {
+      width: 90vw;
+      height: 50vh;
+      max-width: 1000px;
+      border: none;
+    }
+    .unicorn {
+      position: absolute;
+      width: 50px;
+      animation: fly 2s linear infinite;
+      z-index: 10;
+    }
+    @keyframes fly {
+      0% { transform: translateY(0) rotate(0); }
+      50% { transform: translateY(-50px) rotate(15deg); }
+      100% { transform: translateY(0) rotate(0); }
+    }
+  </style>
+</head>
+<body>
+  <h1>¡Qué lástima, pero adiós! 🎉</h1>
+
+  <div class="video-section">
+    <div class="video-title">1. Libre Soy de Frozen</div>
+    <iframe src="https://www.dailymotion.com/embed/video/x4fp73g?start=59&autoplay=1&mute=1" allow="autoplay" allowfullscreen></iframe>
+  </div>
+  <div class="video-section">
+    <div class="video-title">2. Me Voy - Julieta Venegas</div>
+    <iframe src="https://www.dailymotion.com/embed/video/x89dkxh?start=40&autoplay=1&mute=1" allow="autoplay" allowfullscreen></iframe>
+  </div>
+  <div class="video-section">
+    <div class="video-title">3. Ya te olvidé - Yuridia</div>
+    <iframe src="https://www.dailymotion.com/embed/video/x2rofbn?start=9&autoplay=1&mute=1" allow="autoplay" allowfullscreen></iframe>
+  </div>
+  <div class="video-section">
+    <div class="video-title">4. Take this Job and Shove it</div>
+    <iframe src="https://www.dailymotion.com/embed/video/x3649vm?start=0&autoplay=1&mute=1" allow="autoplay" allowfullscreen></iframe>
+  </div>
+  <div class="video-section">
+    <div class="video-title">5. FU - Ce Lo Green </div>
+    <iframe src="https://www.dailymotion.com/embed/video/x4xevrv?start=10&autoplay=1&mute=1" allow="autoplay" allowfullscreen></iframe>
+  </div>
+  <div class="video-section">
+    <div class="video-title">6. Narcisista - Yailin la más viral</div>
+    <iframe src="https://www.dailymotion.com/embed/video/x8loi3k?start=51&autoplay=1&mute=1" allow="autoplay" allowfullscreen></iframe>
+  </div>
+  <div class="video-section">
+    <div class="video-title">7. Bye Bye Bye - NSYNC</div>
+    <iframe src="https://www.dailymotion.com/embed/video/x4wnpm0?start=21&autoplay=1&mute=1" allow="autoplay" allowfullscreen></iframe>
+  </div>
+
+
+
+  
+
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+  <script>
+    const iframes = document.querySelectorAll('iframe');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        const iframe = entry.target;
+        const src = iframe.getAttribute('src');
+
+        if (entry.isIntersecting) {
+          if (!src.includes('mute=0')) {
+            iframe.setAttribute('src', src.replace('mute=1', 'mute=0'));
+          }
+        } else {
+          if (!src.includes('mute=1')) {
+            iframe.setAttribute('src', src.replace('mute=0', 'mute=1'));
+          }
+        }
+      });
+    }, { threshold: 0.5 });
+
+    iframes.forEach(iframe => observer.observe(iframe));
+
+    // Confetti
+    function lanzarConfetti() {
+      confetti({
+        particleCount: 200,
+        spread: 120,
+        origin: { y: 0.6 }
+      });
+    }
+    setInterval(lanzarConfetti, 2000);
+
+    // Unicornios
+    function crearUnicornio() {
+        for (let i = 0; i < 10; i++) { 
+                const unicorn = document.createElement("img");
+                unicorn.src = "unicornio.png"; 
+                unicorn.className = "unicorn";
+                unicorn.style.left = Math.random() * window.innerWidth + "px";
+                unicorn.style.top = Math.random() * window.innerHeight + "px";
+                document.body.appendChild(unicorn);
+                
+                setTimeout(() => unicorn.remove(), 3000); 
+            }
+    }
+    setInterval(crearUnicornio, 1500);
+  </script>
+</body>
+</html>
