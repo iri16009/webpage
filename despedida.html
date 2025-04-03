@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>¡Qué lástima, pero adiós!</title>
+  <title>Me Voy - Despedida con Videos</title>
   <style>
-    body {
-      background-color: #ffe4e1;
-      font-family: Arial, sans-serif;
+    html, body {
       margin: 0;
       padding: 0;
+      font-family: Arial, sans-serif;
+      background-color: #ffe4e1;
       overflow-x: hidden;
     }
     h1 {
@@ -26,6 +26,7 @@
       padding: 2rem;
       box-sizing: border-box;
       position: relative;
+      z-index: 1;
     }
     .video-title {
       font-size: 1.5rem;
@@ -49,43 +50,49 @@
       50% { transform: translateY(-50px) rotate(15deg); }
       100% { transform: translateY(0) rotate(0); }
     }
+    canvas.confetti-canvas {
+      position: fixed;
+      pointer-events: none;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: 9999;
+    }
   </style>
 </head>
 <body>
+  <canvas class="confetti-canvas"></canvas>
   <h1>¡Qué lástima, pero adiós! 🎉</h1>
 
   <div class="video-section">
-    <div class="video-title">1. Libre Soy de Frozen</div>
+    <div class="video-title">1. Julieta Venegas - Lento</div>
+    <iframe src="https://www.dailymotion.com/embed/video/x4wnpm0?start=21&autoplay=1&mute=1" allow="autoplay" allowfullscreen></iframe>
+  </div>
+  <div class="video-section">
+    <div class="video-title">2. Natalia Lafourcade - Lo que construimos</div>
     <iframe src="https://www.dailymotion.com/embed/video/x4fp73g?start=59&autoplay=1&mute=1" allow="autoplay" allowfullscreen></iframe>
   </div>
   <div class="video-section">
-    <div class="video-title">2. Me Voy - Julieta Venegas</div>
-    <iframe src="https://www.dailymotion.com/embed/video/x89dkxh?start=40&autoplay=1&mute=1" allow="autoplay" allowfullscreen></iframe>
-  </div>
-  <div class="video-section">
-    <div class="video-title">3. Ya te olvidé - Yuridia</div>
+    <div class="video-title">3. Carla Morrison - Disfruto</div>
     <iframe src="https://www.dailymotion.com/embed/video/x2rofbn?start=9&autoplay=1&mute=1" allow="autoplay" allowfullscreen></iframe>
   </div>
   <div class="video-section">
-    <div class="video-title">4. Take this Job and Shove it</div>
+    <div class="video-title">4. Mon Laferte - Tu falta de querer</div>
     <iframe src="https://www.dailymotion.com/embed/video/x3649vm?start=0&autoplay=1&mute=1" allow="autoplay" allowfullscreen></iframe>
   </div>
   <div class="video-section">
-    <div class="video-title">5. FU - Ce Lo Green </div>
+    <div class="video-title">5. Ximena Sariñana - Diferente</div>
     <iframe src="https://www.dailymotion.com/embed/video/x4xevrv?start=10&autoplay=1&mute=1" allow="autoplay" allowfullscreen></iframe>
   </div>
   <div class="video-section">
-    <div class="video-title">6. Narcisista - Yailin la más viral</div>
+    <div class="video-title">6. Zoé - Labios rotos</div>
     <iframe src="https://www.dailymotion.com/embed/video/x8loi3k?start=51&autoplay=1&mute=1" allow="autoplay" allowfullscreen></iframe>
   </div>
   <div class="video-section">
-    <div class="video-title">7. Bye Bye Bye - NSYNC</div>
-    <iframe src="https://www.dailymotion.com/embed/video/x4wnpm0?start=21&autoplay=1&mute=1" allow="autoplay" allowfullscreen></iframe>
+    <div class="video-title">7. Julieta Venegas - Me voy</div>
+    <iframe src="https://www.dailymotion.com/embed/video/x89dkxh?start=40&autoplay=1&mute=1" allow="autoplay" allowfullscreen></iframe>
   </div>
-
-
-
-  
 
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
   <script>
@@ -110,28 +117,28 @@
 
     iframes.forEach(iframe => observer.observe(iframe));
 
-    // Confetti
+    // Confetti desde canvas fijo
+    const canvas = document.querySelector(".confetti-canvas");
+    const confettiInstance = confetti.create(canvas, { resize: true, useWorker: true });
+
     function lanzarConfetti() {
-      confetti({
-        particleCount: 200,
+      confettiInstance({
+        particleCount: 150,
         spread: 120,
         origin: { y: 0.6 }
       });
     }
-    setInterval(lanzarConfetti, 2000);
+    setInterval(lanzarConfetti, 3000);
 
     // Unicornios
     function crearUnicornio() {
-        for (let i = 0; i < 10; i++) { 
-                const unicorn = document.createElement("img");
-                unicorn.src = "unicornio.png"; 
-                unicorn.className = "unicorn";
-                unicorn.style.left = Math.random() * window.innerWidth + "px";
-                unicorn.style.top = Math.random() * window.innerHeight + "px";
-                document.body.appendChild(unicorn);
-                
-                setTimeout(() => unicorn.remove(), 3000); 
-            }
+      const unicorn = document.createElement("img");
+      unicorn.src = "unicornio.png";
+      unicorn.className = "unicorn";
+      unicorn.style.left = Math.random() * window.innerWidth + "px";
+      unicorn.style.top = Math.random() * window.innerHeight + "px";
+      document.body.appendChild(unicorn);
+      setTimeout(() => unicorn.remove(), 3000);
     }
     setInterval(crearUnicornio, 1500);
   </script>
