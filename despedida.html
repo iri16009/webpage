@@ -65,34 +65,35 @@
   <canvas class="confetti-canvas"></canvas>
   <h1>¡Qué lástima, pero adiós! 🎉</h1>
 
-  <div class="video-section">
-    <div class="video-title">1. Julieta Venegas - Lento</div>
-    <iframe src="https://www.dailymotion.com/embed/video/x4wnpm0?start=21&autoplay=1&mute=1" allow="autoplay" allowfullscreen></iframe>
-  </div>
-  <div class="video-section">
-    <div class="video-title">2. Natalia Lafourcade - Lo que construimos</div>
+   <div class="video-section">
+    <div class="video-title">1. Libre Soy de Frozen</div>
     <iframe src="https://www.dailymotion.com/embed/video/x4fp73g?start=59&autoplay=1&mute=1" allow="autoplay" allowfullscreen></iframe>
   </div>
   <div class="video-section">
-    <div class="video-title">3. Carla Morrison - Disfruto</div>
+    <div class="video-title">2. Me Voy - Julieta Venegas</div>
+    <iframe src="https://www.dailymotion.com/embed/video/x89dkxh?start=40&autoplay=1&mute=1" allow="autoplay" allowfullscreen></iframe>
+  </div>
+  <div class="video-section">
+    <div class="video-title">3. Ya te olvidé - Yuridia</div>
     <iframe src="https://www.dailymotion.com/embed/video/x2rofbn?start=9&autoplay=1&mute=1" allow="autoplay" allowfullscreen></iframe>
   </div>
   <div class="video-section">
-    <div class="video-title">4. Mon Laferte - Tu falta de querer</div>
+    <div class="video-title">4. Take this Job and Shove it</div>
     <iframe src="https://www.dailymotion.com/embed/video/x3649vm?start=0&autoplay=1&mute=1" allow="autoplay" allowfullscreen></iframe>
   </div>
   <div class="video-section">
-    <div class="video-title">5. Ximena Sariñana - Diferente</div>
+    <div class="video-title">5. FU - Ce Lo Green </div>
     <iframe src="https://www.dailymotion.com/embed/video/x4xevrv?start=10&autoplay=1&mute=1" allow="autoplay" allowfullscreen></iframe>
   </div>
   <div class="video-section">
-    <div class="video-title">6. Zoé - Labios rotos</div>
+    <div class="video-title">6. Narcisista - Yailin la más viral</div>
     <iframe src="https://www.dailymotion.com/embed/video/x8loi3k?start=51&autoplay=1&mute=1" allow="autoplay" allowfullscreen></iframe>
   </div>
   <div class="video-section">
-    <div class="video-title">7. Julieta Venegas - Me voy</div>
-    <iframe src="https://www.dailymotion.com/embed/video/x89dkxh?start=40&autoplay=1&mute=1" allow="autoplay" allowfullscreen></iframe>
+    <div class="video-title">7. Bye Bye Bye - NSYNC</div>
+    <iframe src="https://www.dailymotion.com/embed/video/x4wnpm0?start=21&autoplay=1&mute=1" allow="autoplay" allowfullscreen></iframe>
   </div>
+
 
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
   <script>
@@ -132,13 +133,16 @@
 
     // Unicornios
     function crearUnicornio() {
-      const unicorn = document.createElement("img");
-      unicorn.src = "unicornio.png";
-      unicorn.className = "unicorn";
-      unicorn.style.left = Math.random() * window.innerWidth + "px";
-      unicorn.style.top = Math.random() * window.innerHeight + "px";
-      document.body.appendChild(unicorn);
-      setTimeout(() => unicorn.remove(), 3000);
+     for (let i = 0; i < 10; i++) { 
+                const unicorn = document.createElement("img");
+                unicorn.src = "unicornio.png"; 
+                unicorn.className = "unicorn";
+                unicorn.style.left = Math.random() * window.innerWidth + "px";
+                unicorn.style.top = Math.random() * window.innerHeight + "px";
+                document.body.appendChild(unicorn);
+                
+                setTimeout(() => unicorn.remove(), 3000); 
+            }
     }
     setInterval(crearUnicornio, 1500);
   </script>
