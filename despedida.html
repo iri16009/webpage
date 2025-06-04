@@ -1,99 +1,123 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="utf-8">
+  <title>Plantilla Reveal.js</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Me Voy - Despedida con Videos</title>
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js/dist/reveal.css">
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js/dist/theme/white.css" id="theme">
   <style>
-    html, body {
-      margin: 0;
-      padding: 0;
-      font-family: Arial, sans-serif;
-      background-color: #ffe4e1;
-      overflow-x: hidden;
-    }
-    h1 {
-      color: #ff1493;
-      text-align: center;
-      padding: 2rem;
-    }
-    .video-section {
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      padding: 2rem;
-      box-sizing: border-box;
-      position: relative;
-      z-index: 1;
-    }
-    .video-title {
-      font-size: 1.5rem;
-      margin-bottom: 1rem;
-      color: #d6336c;
-    }
-    iframe {
-      width: 90vw;
-      height: 50vh;
-      max-width: 1000px;
-      border: none;
-    }
-    .unicorn {
+    body { font-family: Arial, sans-serif; }
+    h1, h2, h3, h4 { font-family: 'Arial Bold', Arial, sans-serif; }
+    .logo {
       position: absolute;
-      width: 50px;
-      animation: fly 2s linear infinite;
-      z-index: 10;
+      bottom: 1rem;
+      right: 1rem;
+      background: #FF7F40;
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
     }
-    @keyframes fly {
-      0% { transform: translateY(0) rotate(0); }
-      50% { transform: translateY(-50px) rotate(15deg); }
-      100% { transform: translateY(0) rotate(0); }
+    .agenda-line {
+      height: 4px;
+      background: black;
+      margin: 1rem 0;
     }
-    canvas.confetti-canvas {
-      position: fixed;
-      pointer-events: none;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      z-index: 9999;
+    .timeline {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+    }
+    .timeline .step {
+      text-align: center;
+      font-size: 0.8em;
+      margin-left: 1rem;
+      flex: 1;
+    }
+    .timeline .step::before {
+      content: "\25CF";
+      display: block;
+      font-size: 2em;
+      margin-bottom: 0.5em;
+      margin-left: 1rem;
     }
   </style>
 </head>
 <body>
-  <canvas class="confetti-canvas"></canvas>
-  <h1>¡Qué lástima, pero adiós! 🎉</h1>
+  <div class="reveal">
+    <div class="slides">
+      <!-- Portada -->
+      <section>
+        <h2>Si recibiste este link</h2>
+        <p>Es porque te tengo una buena noticia...</p>
+      </section>
 
+      <!-- Noticia -->
+      <section>
+        <h3>Hoy 4 de junio de 2025 completamos el objetivo más importante de las MCIs... Renuncié</h3>
+        <div>
+          <img src="turndowngaby.JPG" alt="Girl in a jacket">
+        </div>
+      </section>
+
+      <!-- Frozen -->
+      <section>
+        <h2>Gaby es libre, Gaby es un elfo feliz 🧦 Gaby has no master.</h2>
    <div class="video-section">
-    <div class="video-title">1. Libre Soy de Frozen</div>
     <iframe src="https://www.dailymotion.com/embed/video/x4fp73g?start=59&autoplay=1&mute=1" allow="autoplay" allowfullscreen></iframe>
   </div>
-  <div class="video-section">
-    <div class="video-title">2. Me Voy - Julieta Venegas</div>
+      </section>
+
+      <!-- Me voy -->
+      <section>
+        <h2>Porque no me supieron valorar, ¡Qué lástima, pero adiós! 🎉</h2>
+   <div class="video-section">
     <iframe src="https://www.dailymotion.com/embed/video/x89dkxh?start=40&autoplay=1&mute=1" allow="autoplay" allowfullscreen></iframe>
   </div>
-  <div class="video-section">
-    <div class="video-title">3. Ya te olvidé - Yuridia</div>
-    <iframe src="https://www.dailymotion.com/embed/video/x2rofbn?start=9&autoplay=1&mute=1" allow="autoplay" allowfullscreen></iframe>
+      </section>
+
+      <!-- Me voy -->
+      <section>
+        <h2>Yuridia, dícelos tú porque yo no puedo</h2>
+   <div class="video-section">
+     <iframe src="https://www.dailymotion.com/embed/video/x2rofbn?start=9&autoplay=1&mute=1" allow="autoplay" allowfullscreen></iframe>
   </div>
-  <div class="video-section">
-    <div class="video-title">4. Take this Job and Shove it</div>
-    <iframe src="https://www.dailymotion.com/embed/video/x3649vm?start=0&autoplay=1&mute=1" allow="autoplay" allowfullscreen></iframe>
-  </div>
-  <div class="video-section">
-    <div class="video-title">5. FU - Ce Lo Green </div>
-    <iframe src="https://www.dailymotion.com/embed/video/x4xevrv?start=10&autoplay=1&mute=1" allow="autoplay" allowfullscreen></iframe>
-  </div>
-  <div class="video-section">
-    <div class="video-title">6. Narcisista - Yailin la más viral</div>
-    <iframe src="https://www.dailymotion.com/embed/video/x8loi3k?start=51&autoplay=1&mute=1" allow="autoplay" allowfullscreen></iframe>
-  </div>
-  <div class="video-section">
-    <div class="video-title">7. Bye Bye Bye - NSYNC</div>
+  <p>Vuelvo a volar hacia mi vida que está lejos y prohibida para todo el que crea que el endeudamiento se calcula con el pago mínimo de la tarjeta de crédito</p>
+      </section>
+
+
+      <!-- Me voy -->
+    <section>
+    <h2>Porque valorar la salud mental es lo más importante yo hoy les digo: Bye, bye, bye!</h2>
+   <div class="video-section">
     <iframe src="https://www.dailymotion.com/embed/video/x4wnpm0?start=21&autoplay=1&mute=1" allow="autoplay" allowfullscreen></iframe>
   </div>
+    </section>
 
+
+      <!-- Contenido gráfico / pasos -->
+      <section>
+        <h2>¡Muchas gracias!</h2>
+        <div class="timeline">
+          <div class="step" style="color:#FF7F40">Gaby<br><small>Por la idea de hacer esta página</small></div>
+          <div class="step" style="color:#5a4c08">Chatgpt<br><small>Por ayudar a hacer esta página</small></div>
+          <div class="step" style="color:#2E2E2E">Cristopher<br><small>Por aportar ideas de mejora en el diseño de la página</small></div>
+          <div class="step" style="color:#9164CC">Ustedes<br><small>Por haber formado parte de este viacrucis junto conmigo por 1 año</small></div>
+        </div>
+      </section>
+    </div>
+  </div>
+  <script src="https://unpkg.com/reveal.js/dist/reveal.js"></script>
+  <script>
+    Reveal.initialize({
+      controls: true,
+      progress: true,
+      center: true,
+      hash: true,
+      slideNumber: true
+    });
+  </script>
 
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
   <script>
